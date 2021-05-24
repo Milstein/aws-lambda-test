@@ -1,0 +1,16 @@
+service: lambda-test
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python2.7
+  lambdaHashingVersion: 20201221
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /users/create
+          method: get
